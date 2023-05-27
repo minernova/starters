@@ -12,6 +12,7 @@ const foodCategorySchema=mongoose.Schema({
 
 
 const menuSchema = new mongoose.Schema({
+  menuTitle:String,
   foodCategories: [foodCategorySchema],
 });
 
