@@ -1,23 +1,24 @@
 const mongoose = require("mongoose");
 
-
-const foodCategorySchema=mongoose.Schema({
-    categoryName:String,
-    items:[{
-        itemName:String,
-        itemPrice:Number,
-    }]
-})
-
-
-
-const menuSchema = new mongoose.Schema({
-  menuTitle:String,
-  foodCategories: [foodCategorySchema],
+const foodCategorySchema = mongoose.Schema({
+  categoryName: String,
+  items: [
+    {
+      itemName: String,
+      itemPrice: Number,
+    },
+  ],
 });
 
-
-
+const menuSchema = new mongoose.Schema({
+  menuTitle: String,
+  date: { type: Date, default: Date.now },
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  foodCategories: [foodCategorySchema],
+});
 
 const userSchema = new mongoose.Schema({
   userName: String,
@@ -25,6 +26,6 @@ const userSchema = new mongoose.Schema({
   menus: [menuSchema],
 });
 
-const User=mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

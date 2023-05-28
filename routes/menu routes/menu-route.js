@@ -17,6 +17,6 @@ router.get("/", authCheck, function (req, res) {
 async function generateUserData(req,res) {
     const user=await User.findById(req.session.passport.user);
 
-    res.render('my-menus',);
+    res.render('my-menus',{menus:user.menus});
 }
 module.exports = router;
