@@ -1,0 +1,18 @@
+<div class="w-full">
+    <div class="w-full flex p-2">
+      <div class="pl-2 pt-2">
+        <span class="text-xs">Created :</span>
+        <span class="font-semibold text-sm">
+          <%=  date.getDate() %>/
+          <% if (date.getMonth() <10) { %>
+            0<%=  date.getMonth() %>
+            
+          <% } else { %>
+            <%= date.getMonth() %>
+          <% } %>
+
+          /<%= date.getFullYear() %>
+        </span>
+      </div>
+    </div>
+  </div>

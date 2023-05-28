@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head") %>
+
+
+    <title>Add Menu</title>
+  </head>
+  <body>
+    <div class="flex justify-center mt-10">
+      <h1
+        class="text-4xl underline underline-offset-8 decoration-3 decoration-teal-500 font-bold"
+      >
+        Create Menu
+      </h1>
+    </div>
+    <div class="mt-16 mx-28">
+      <form action="/menus/create" enctype="multipart/form-data" method="post" >
+
+        <%- include("partials/menu-form/menu-name",{menuName:menu.menuTitle}) %>
+        
+        <%- include("partials/menu-form/add-image") %>
+        
+        <% menu.foodCategories.forEach(category => { %>
+            <%- include("partials/menu-form/category-container",{category:category}) %>
+        <% }) %>
+        
+        <%- include("partials/menu-form/add-category-button") %>
+        
+      
+        <button
+          type="submit"
+          class="text-white mb-10 bg-gray-950 hover:bg-teal-500 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center focus:ring-blue-800"
+        >
+          Submit
+        </button>
+
+      </form>
+    </div>
+
+    <script src="../new-menu.js"></script>
+  </body>
+</html>

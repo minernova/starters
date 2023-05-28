@@ -1,157 +1,17 @@
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <%- include("partials/head") %>
+
   </head>
   <body>
-    <div class="  ">
+    <div>
       <div class="px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-        <div class="hero">
-          <div
-            class="flex items-center justify-between pt-14 text-center"
-          >
-            
-            <span class="font-bold text-3xl text-gray-900">My Menus</span>
-            <a href="#" class="hover:opacity-100 opacity-70 text-black">Logout</a>
-          </div>
 
-          <div class="box pt-6">
-            <div class="box-wrapper">
-              <div
-                class="bg-white rounded flex items-center w-full p-3 shadow-sm border border-gray-700"
-              >
-                <button
-                  class="outline-none focus:outline-none"
-                >
-                  <svg
-                    class="w-5 text-gray-600 h-5 cursor-pointer"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>  
-                </button>
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  @keydown.enter="getImages()"
-                  placeholder="search for menus"
-                  x-model="q"
-                  class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <section class="text-gray-600 body-font">
-          <div class="container px-5 py-5 mx-auto">
-            <div class="flex flex-wrap -m-4">
-              <div class="p-4  md:w-1/3">
-                <div
-                  class="h-full bg-gray-100 border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
-                >
-                  
+        <%- include("partials/my-menus/menu-top-section") %>
+        <%- include("partials/my-menus/menu-bottom-section",{menus:menus}) %>
 
-                  <a href="/menus/create">
-                    <img
-                    src="../add.png"
-                    class=" cursor-pointer hover:opacity-75 p-24 opacity-50"
-                    alt=""
-                    srcset=""
-                  />
-
-                  </a>
-
-                  
-                </div>
-              </div>
-              <% menus.forEach(menu => { %>
-                
-                <div class="p-4 md:w-1/3">
-                  <div
-                    class="h-full bg-gray-100 border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
-                  >
-                    <div class="w-full">
-                      <div class="w-full flex p-2">
-                        <div class="pl-2 pt-2">
-                          <span class="text-xs">Created :</span>
-                          <span class="font-semibold text-sm">
-                            <%=  menu.date.getDate() %>/
-                            <% if (menu.date.getMonth() <10) { %>
-                              0<%=  menu.date.getMonth() %>
-                              
-                            <% } else { %>
-                              <%= menu.date.getMonth() %>
-                            <% } %>
-
-                            /<%= menu.date.getFullYear() %>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <a href="#">
-                      <img
-                        class="lg:h-52 md:h-44 w-full object-cover object-center"
-                        src="https://firebasestorage.googleapis.com/v0/b/thecaffeinecode.appspot.com/o/blog.jpg?alt=media&token=271cb624-94d4-468d-a14d-455377ba75c2"
-                        alt="blog cover"
-                        
-                      />
-  
-                    </a>
-  
-                    <div class="px-4 mt-2">
-                      <a 
-                        href="#" class=" title-font text-2xl font-bold text-gray-900 mb-3"
-                      >
-                        <%= menu.menuTitle %>
-                      </a>
-                      <div class="flex items-center flex-wrap mt-6 mb-3">
-                        <a href="/" class="hover:opacity-100 text-black opacity-60 md:mb-0 font-medium lg:mb-0">
-                          <p class="inline-flex items-center">
-                            share
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class=" w-4 ml-1 mt-1 bg-white opacity-70 "
-                              viewBox="0 0 512 512"
-                              
-                              
-                            >
-                              <path
-                                d="M503.691 189.836L327.687 37.851C312.281 24.546 288 35.347 288 56.015v80.053C127.371 137.907 0 170.1 0 322.326c0 61.441 39.581 122.309 83.333 154.132 13.653 9.931 33.111-2.533 28.077-18.631C66.066 312.814 132.917 274.316 288 272.085V360c0 20.7 24.3 31.453 39.687 18.164l176.004-152c11.071-9.562 11.086-26.753 0-36.328z"
-                              />
-                            </svg>
-                          </p>
-                        </a>
-                        <a href="#"
-                          class="hover:text-black text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                        >
-                          edit
-                        </span>
-                        <a href="#"
-                          class="hover:text-black text-gray-600 inline-flex items-center leading-none text-sm"
-                        >                 
-                          delete
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-               
-              <% }) %>
-            </div>
-          </div>
-        </section>
+        
       </div>
     </div>
   </body>
