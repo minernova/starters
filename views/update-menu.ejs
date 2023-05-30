@@ -21,9 +21,9 @@
         
         <%- include("partials/menu-form/add-image") %>
         
-        <% menu.foodCategories.forEach(category => { %>
-            <%- include("partials/menu-form/category-container",{category:category}) %>
-        <% }) %>
+        <% menu.foodCategories.forEach((category,i) => { %>
+            <%- include("partials/menu-form/category-container",{category:category,catNo:i}) %>
+        <% }); %>
         
         <%- include("partials/menu-form/add-category-button") %>
         

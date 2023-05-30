@@ -51,11 +51,13 @@
             SVG, PNG or JPG(MAX. 800x400px).
           </p>
         </div>
-        <div
-          id="categories-container"
-          class="grid md:grid-cols-1 mb-6 md:gap-6"
-        >
-          <div class="border-2 rounded-md border-gray-400 mt-10 px-5 py-3">
+        <div id="categories-container" class="grid md:grid-cols-1 mb-6">
+          <div
+            class="font-medium inline opacity-90 hover:opacity-100 hover:cursor-pointer hover:text-red-600"
+          >
+            <span onclick="removeCategory(this)"> remove </span>
+          </div>
+          <div class="border-2 rounded-md border-gray-400 px-5 py-3">
             <div id="category-1">
               <div class="relative z-0 w-full mb-10 group">
                 <input
@@ -66,13 +68,13 @@
                 />
                 <label
                   for="category-heading-1"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform scale-100 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >Category Name</label
                 >
               </div>
 
-              <div class="grid grid-cols-2 md:gap-6">
-                <div class="relative z-0 w-full sm:w-1/2 group">
+              <div class="grid grid-cols-5 sm:gap-4 md:gap-6">
+                <div class="relative z-0 col-span-2 group">
                   <input
                     type="text"
                     name="item-1-1"
@@ -82,11 +84,11 @@
                   />
                   <label
                     for="item-1-1"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform scale-100 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >Item name</label
                   >
                 </div>
-                <div class="relative z-0 w-full sm:w-1/2 group">
+                <div class="relative col-span-2 group inline">
                   <input
                     type="number"
                     name="price-1-1"
@@ -96,10 +98,31 @@
                   />
                   <label
                     for="price-1-1"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform scale-100 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >price</label
                   >
                 </div>
+                <span class="col-span-1 mt-auto mx-auto">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mt-auto hover:text-red-600 hover:cursor-pointer inline"
+                    onclick="deleteItem(this)"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-trash"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                      id="mainIconPathAttribute"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      id="mainIconPathAttribute"
+                    ></path>
+                  </svg>
+                </span>
               </div>
             </div>
 
@@ -115,9 +138,15 @@
         </div>
         <div
           id="addCategoryBtn"
-          class="flex rounded-full justify-center h-20   mx-auto mt-1 px-5 py-1"
+          class="flex rounded-full justify-center h-20 mx-auto mt-1 px-5 py-1"
         >
-          <img onclick="addCategory()" src="../add.png" class="hover:cursor-pointer opacity-80 hover:opacity-100" alt="" srcset="" />
+          <img
+            onclick="addCategory()"
+            src="../add.png"
+            class="hover:cursor-pointer opacity-80 hover:opacity-100"
+            alt=""
+            srcset=""
+          />
         </div>
 
         <button

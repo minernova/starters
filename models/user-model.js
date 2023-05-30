@@ -11,6 +11,7 @@ const foodCategorySchema = mongoose.Schema({
 });
 
 const menuSchema = new mongoose.Schema({
+  menuId:Number,
   menuTitle: String,
   date: { type: Date, default: Date.now },
   image: {

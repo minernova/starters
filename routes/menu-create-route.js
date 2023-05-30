@@ -24,7 +24,7 @@ const authCheck = (req, res, next) => {
   } else res.redirect("/authorize");
 };
 
-router.get("/", authCheck, function (req, res) {
+router.get("/",authCheck,  function (req, res) {
   res.render("new-menu");
 });
 
@@ -42,6 +42,7 @@ router.post("/", upload.single("image"), function (req, res, next) {
         console.log(user);
       });
     });
+    fs.unlink(parentDir + "/static/uploads/" + req.file.filename,(err)=>console.log(err));
     res.redirect('/menus');
 });
 

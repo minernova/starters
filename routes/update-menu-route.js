@@ -43,6 +43,7 @@ router.post("/", upload.single("image"), function (req, res, next) {
         console.log(user);
       });
     });
+    fs.unlink(parentDir + "/static/uploads/" + req.file.filename,(err)=>console.log(err));
     res.redirect('/menus');
 });
 

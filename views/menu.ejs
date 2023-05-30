@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Restaurant Menu Card</title>
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="flex justify-center mt-10">
+      <h1
+        class="text-4xl underline underline-offset-8 decoration-3 decoration-red-600 font-bold"
+      >
+        Menu Name
+      </h1>
+    </div>
+
+    <div
+      class="mt-10 mx-10 md:mx-40 px-10 pb-6 mb:pb-10 border-2 border-gray-400 rounded-lg"
+    >
+      <div
+        class="text-center font-semibold border-b-2 border-gray-400 text-xl mb-6 mt-10"
+      >
+        DESERTS
+      </div>
+
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <button
+
+          class="block rounded-lg group hover:bg-red-600 hover:text-white bg-white text-center hover:cursor-pointer hover:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+        >
+          <div
+            class="border-b-2 group-hover:border-white text-sm border-gray-400 px-1 py-1"
+          >
+          <input  type="checkbox">
+            Desert
+          </div>
+          <div class="py-4 flex justify-between px-3">
+            <span class="text-xl font-medium leading-tight"> Ras Malai </span>
+            <span class="text-medium font-sans"> ₹ 5 </span>
+          </div>
+        </button>
+      </div>
+      
+    </div>
+  </body>
+</html>
