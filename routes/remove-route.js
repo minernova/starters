@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user-model");
 
 router.get("/", (req, res) => {
+  if(!req.user) res.redirect('/authorize')
   deleteMenu(  req.session.passport.user, req.query.menuId, res);
 });
 

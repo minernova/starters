@@ -13,7 +13,7 @@
             >
               <%- include("bottom_components/menu-card-date",{date:menu.date}) %>
 
-              <a href="#">
+              <a href="/menus/menu?menuId=<%= menu._id %>">
                 <img
                   class="lg:h-52 md:h-44 w-full object-cover object-center"
                   src="data:image/<%=menu.image.contentType%>;base64,
@@ -26,12 +26,13 @@
 
               <div class="px-4 mt-2">
                 <a 
-                  href="#" class=" title-font text-2xl font-bold text-gray-900 mb-3"
+                  href="/menus/menu?menuId=<%= menu._id %>" class=" title-font text-2xl font-bold text-gray-900 mb-3"
                 >
                   <%= menu.menuTitle %>
                 </a>
                 <div class="flex items-center flex-wrap mt-6 mb-3">
-                  <a href="/" class="hover:opacity-100 text-black opacity-60 md:mb-0 font-medium lg:mb-0">
+                  <a  href="/share?menuId=<%= menu._id %>&menuName=<%= menu.menuTitle %>"
+                    class="hover:opacity-100 text-black opacity-60 md:mb-0 font-medium lg:mb-0">
                     <p class="inline-flex items-center">
                       share
                       <svg
@@ -48,7 +49,7 @@
                     </p>
                   </a>
                   <a href="/menus/edit?menuId=<%= menu._id  %>"
-                    class="hover:text-black text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+                    class="hover:text-black text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300"
                   >
                     edit
                   

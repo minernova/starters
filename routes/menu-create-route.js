@@ -24,11 +24,12 @@ const authCheck = (req, res, next) => {
   } else res.redirect("/authorize");
 };
 
-router.get("/",authCheck,  function (req, res) {
+router.get("/",  function (req, res) {
   res.render("new-menu");
 });
 
-router.post("/", upload.single("image"), function (req, res, next) {
+router.post("/", upload.single("image"), function (req, res) {
+  if(!req.user) res.redirect('/authorize')
   const menu = getMenu(req);
   const updatedMenus = [menu];
   

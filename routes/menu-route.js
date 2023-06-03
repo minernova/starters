@@ -1,22 +1,16 @@
-const router = require("express").Router();
-const User = require("../models/user-model");
+const router = require('express').Router();
+const User = require('../models/user-model')
+router.get('/',(req, res) =>{
+    if(!req.query.uId && !req.user  ) res.redirect('/authorize')
+    const menuId=req.query.menuId;
+    const userId=req.query.uId || req.session.passport.user;
+
+    User.findById(userId).then((user) =>{
+        const menu=user.menus.find((menu)=>menu.id===menuId);
+        res.render('menu',{menu:menu});
+    })
 
 
+})
 
-const authCheck = (req, res, next) => {
-  console.log("menu-route");
-  console.log(req.session);
-  if (req.user) next();
-  else res.redirect("/authorize");
-};
-
-router.get("/", authCheck, function (req, res) {
-    generateUserData(req,res);
-});
-
-async function generateUserData(req,res) {
-    const user=await User.findById(req.session.passport.user);
-
-    res.render('my-menus',{menus:user.menus});
-}
-module.exports = router;
+module.exports=router;

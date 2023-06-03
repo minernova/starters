@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head") %>
+    <title>share</title>
+</head>
+<body class="bg-gray-200 flex align-middle justify-evenly py-20">
+    <div class="max-w-sm my-auto border-2 border-gray-500 border-dashed bg-white rounded-3xl overflow-hidden shadow-lg">
+        <img class="w-2/3 mt-3 mx-auto" src="<%=src%>" alt="qr">
+        <div class="px-6  text-center">
+          <div class="font-bold text-red-600 text-xl "><%= menuName %></div>
+          <p class="text-gray-700 text-sm">
+            Scan to view menu.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block bg-red-600 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#starters</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cravings</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#yummy</span>
+        </div>
+      </div>
+    
+</body>
+</html>

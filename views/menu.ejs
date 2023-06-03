@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <%- include("partials/head") %>
     <title>Restaurant Menu Card</title>
   </head>
 
-  <body class="bg-gray-100">
+  <body class="bg-[url('../menubg.jpg')] bg-cover  ">
     <div class="flex justify-center mt-10">
       <h1
         class="text-4xl underline underline-offset-8 decoration-3 decoration-red-600 font-bold"
       >
-        Menu Name
+        <%= menu.menuTitle.toUpperCase() %>
       </h1>
     </div>
 
+    <% menu.foodCategories.forEach(category => { %>
     <div
-      class="mt-10 mx-10 md:mx-40 px-10 pb-6 mb:pb-10 border-2 border-gray-400 rounded-lg"
+      class="mt-10 mx-3 sm:mx-10 md:mx-40 px-3 sm:px-10 pb-6 md:pb-10 border-2 border-gray-400 rounded-lg"
     >
       <div
-        class="text-center font-semibold border-b-2 border-gray-400 text-xl mb-6 mt-10"
+        class="text-center font-semibold border-b-2 border-gray-400 text-xl mb-6 sm:mt-10"
       >
-        DESERTS
+        <%= category.categoryName.toUpperCase() %>
       </div>
 
-      
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <button
-
-          class="block rounded-lg group hover:bg-red-600 hover:text-white bg-white text-center hover:cursor-pointer hover:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+        <% category.items.forEach(item => { %>
+        <div
+          class="block rounded-lg border-2 border-gray-400 group hover:bg-red-600 hover:text-white bg-white text-center hover:cursor-pointer hover:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
         >
-          <div
-            class="border-b-2 group-hover:border-white text-sm border-gray-400 px-1 py-1"
-          >
-          <input  type="checkbox">
-            Desert
+        <div
+        class="border-b-2 group-hover:border-white text-xs sm:text-sm border-gray-400 px-1 py-1"
+        >
+        <input id="vue-checkbox" type="checkbox" value="" class="peer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 ">
+            <%= category.categoryName.toUpperCase() %>
           </div>
-          <div class="py-4 flex justify-between px-3">
-            <span class="text-xl font-medium leading-tight"> Ras Malai </span>
-            <span class="text-medium font-sans"> ₹ 5 </span>
+          
+          <div class="sm:py-4 py-1 peer-checked:bg-red-600 flex justify-between px-1 sm:px-3">
+            <span class="sm:text-xl text-xs font-medium leading-tight">
+              <%= item.itemName.charAt(0).toUpperCase()+item.itemName.slice(1) %> <%= %>
+            </span>
+            <span class="text-medium text-xs sm:text-base font-sans"> ₹ <%= item.itemPrice %> </span>
           </div>
-        </button>
+        </div>
+
+        <% }) %>
       </div>
-      
     </div>
+
+    <% }) %>
   </body>
 </html>

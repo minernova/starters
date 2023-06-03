@@ -5,9 +5,11 @@ const express = require("express");
 //----------------------------------------------- Routes ---------------------------------------------------------//
 const authRoutes=require("./routes/auth-routes");
 const menuCreateRoute=require("./routes/menu-create-route")
-const menuRoute=require("./routes/menu-route")
+const menusRoute=require("./routes/menus-route")
 const removeRoute=require("./routes/remove-route")
 const updateRoute=require("./routes/update-menu-route")
+const menuRoute=require("./routes/menu-route")
+const shareRoute=require("./routes/share-menu-route")
 
 
 const path=require("path")
@@ -33,9 +35,11 @@ app.use(passport.session());
 mongoose.connect(keys.mongoose.dbURL);
 app.use('/',authRoutes);
 app.use('/menus/create',menuCreateRoute);
-app.use('/menus',menuRoute);
+app.use('/menus',menusRoute);
 app.use('/menus/edit',updateRoute);
+app.use('/menus/menu',menuRoute);
 app.use('/remove',removeRoute);
+app.use('/share',shareRoute);
 
 ///----------------------------------------------- home ---------------------------------------------------------//
 app.get('/', function(req, res) {
