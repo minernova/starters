@@ -17,7 +17,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new FacebookStrategy({
   clientID: keys.facebook.appId,
   clientSecret: keys.facebook.appSecret,
-  callbackURL: "/facebook/callback/"
+  callbackURL: "https://starters-jowo.onrender.com/facebook/callback/"
 },
 function(accessToken, refreshToken, profile, done) {
   User.findOne({ googleId: profile.id }).then((user) => {
