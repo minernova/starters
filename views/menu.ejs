@@ -5,21 +5,21 @@
     <title>Restaurant Menu Card</title>
   </head>
 
-  <body class="bg-[url('../menubg.jpg')] bg-cover  ">
-    <div class="flex justify-center mt-10">
+  <body class="bg-[url('../menubg.png')] bg-cover   ">
+    <span class="flex justify-center mt-10">
       <h1
         class="text-4xl underline underline-offset-8 decoration-3 decoration-red-600 font-bold"
       >
         <%= menu.menuTitle.toUpperCase() %>
       </h1>
-    </div>
+    </span>
 
     <% menu.foodCategories.forEach(category => { %>
     <div
-      class="mt-10 mx-3 sm:mx-10 md:mx-40 px-3 sm:px-10 pb-6 md:pb-10 border-2 border-gray-400 rounded-lg"
+      class=" mt-10 mx-3 sm:mx-10 md:mx-40 px-3 sm:px-10 pb-6 md:pb-10 border-2 border-gray-400 rounded-lg"
     >
       <div
-        class="text-center font-semibold border-b-2 border-gray-400 text-xl mb-6 sm:mt-10"
+        class="text-center font-semibold border-b-2 border-gray-400 text-3xl mb-6 sm:mt-10"
       >
         <%= category.categoryName.toUpperCase() %>
       </div>
