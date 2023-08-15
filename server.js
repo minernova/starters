@@ -32,7 +32,9 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect(keys.mongoose.dbURL);
+mongoose.connect(keys.mongoose.dbURL,()=>{
+    console.log("db connected");
+});
 app.use('/',authRoutes);
 app.use('/menus/create',menuCreateRoute);
 app.use('/menus',menusRoute);
